@@ -1,0 +1,29 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="post-card" >
+    <template>
+        <h3>Post Card</h3>
+        <h1>{{post.title}}</h1>
+        <p>{{post.intro}}</p>
+        <paper-button ><a href="{{url}}">Read</a></paper-button>
+    </template>
+    
+</dom-module>
+
+<script>
+    Polymer({
+        is:'post-card',
+        
+        ready:function(){
+            this.url ="/blog/"+this.post.slug;
+        },
+        
+        properties: {
+            post: Object,
+            url:{
+                type:String,
+                value:""
+            }
+        }
+        });
+</script>

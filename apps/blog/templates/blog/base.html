@@ -1,0 +1,18 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<head>
+    <title> {% block title%} A Maurice {% endblock%}</title>
+    <link rel="import" href="{% static "bower_components/paper-input/paper-input.html" %}">
+    <link rel="import" href="{% static "custom/ma-intro.html" %}">
+    <link rel="import" href="{% static "custom/ma-blog.html" %}">
+    <link rel="import" href="{% static "custom/ma-recent.html" %}">
+    <link rel="import" href="{% static "custom/post-detail.html" %}">
+</head>
+
+<body>
+    
+    {% block content%}
+    
+    {% endblock%}
+
+</body>

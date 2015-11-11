@@ -1,0 +1,54 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html"> 
+
+<dom-module id="post-detail" >
+    <template>
+        
+        <iron-ajax
+                id="ReadPost"
+                auto
+                method="get"
+                handle-as="json"
+                on-response="showdata"
+                last-response="{{post}}"
+                ></iron-ajax>
+        
+        <h1>{{post.title}}</h1>
+        <p>{{post.intro}}</p>
+        <p>post id: <h3>{{post.id}}</h3>
+        <a href="#">{{post.slug}}</a>
+        </p>
+        
+    </template>
+    
+</dom-module>
+
+<script>
+    Polymer({
+        is:'post-detail',
+        
+        ready:function(){
+            this.$.ReadPost.url ="http://localhost:8000/api/v1/post/"+this.slug+"/?format=json";
+            
+            console.log(this.pk)
+        },
+        
+        showdata: function(r){
+            console.log(r.detail.response);
+        },
+        
+        properties: {
+            post: Object,
+            url:{
+                type:String,
+                value:""
+            },
+            slug:{
+                type: String,
+                value: "",
+                reflectToAttribute: true
+            }
+        }
+        });
+</script>

@@ -1,0 +1,48 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html"> 
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="post-card.html">
+
+
+<dom-module id="ma-recent">
+    
+    <template >
+        
+        <iron-ajax
+               id="Recentpost"
+               method="get"
+               auto
+               contentType="application/json"
+               url="http://localhost:8000/api/v1/recents/?format=json"
+               handle-as="json"
+               on-response= "showdata"
+               last-response="{{data}}"></iron-ajax>
+    
+        <template is="dom-repeat" items="{{data}}" as="post" >
+            <post-card post="{{post}}">
+               
+            </post-card>
+        </template>
+        
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is:'ma-recent',
+        
+        showdata: function(r){
+            console.log("Hello world..!");
+            console.log(r.detail.response);
+            
+        },
+        testing: function(){
+            console.log("hello world");
+        },
+        
+        properties:{
+            //post: Object
+        }
+    });
+</script>
