@@ -1,0 +1,95 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-dialog-behavior/paper-dialog-behavior.html">
+<link rel="import" href="../bower_components/paper-dialog-behavior/paper-dialog-shared-styles.html">
+<link rel="stylesheet" href="../css/style.css">
+
+
+<dom-module id="drawer-card">
+    <template>
+        
+        <style is="custom-style">
+          
+        :host {
+            background: #606060;
+            //color: black;
+            //padding: 24px;
+            //position: absolute;
+            width: 40%;
+            height: 100%;
+            position: fixed;
+            right:0;
+            border: 1px solid #000;
+    }
+
+    paper-header-panel{
+        //widht:80;
+    }
+
+    paper-toolbar {
+     // background-color: transparent;
+    }
+
+
+    #menu{
+
+    }
+
+  </style>
+
+  <!-- Instead of using 1/3 of the header's height, we want to manually set the
+       condensed header's height to 64px -->
+<div id="menu">
+    <paper-toolbar>
+        <paper-icon-button icon="close" id="back" dialog-dismiss></paper-icon-button>
+        <span>Menu</span>
+    </paper-toolbar>
+
+    <div>
+        <p>Hello world...!</p>
+    </div>
+</div>
+        
+        
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is:'drawer-card',
+        
+        behaviors: [
+            Polymer.PaperDialogBehavior,
+            Polymer.NeonAnimationRunnerBehavior
+        ],
+        
+        listeners: {
+            'neon-animation-finish': '_onNeonAnimationFinish'
+        },
+
+        _renderOpened: function() {
+          if (this.withBackdrop) {
+            this.backdropElement.open();
+          }
+          this.playAnimation('entry');
+        },
+    
+        _renderClosed: function() {
+          if (this.withBackdrop) {
+            this.backdropElement.close();
+          }
+          this.playAnimation('exit');
+        },
+    
+        _onNeonAnimationFinish: function() {
+          if (this.opened) {
+            this._finishRenderOpened();
+          } else {
+            this._finishRenderClosed();
+          }
+        },
+        closeOver: function(){
+            this.backdropElement.close();
+        } 
+       
+    });
+</script>

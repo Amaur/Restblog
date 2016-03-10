@@ -1,0 +1,97 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="stylesheet" href="../css/style.css">
+
+<dom-module id="ma-blog">
+    <template>
+        <style is="custom-style">
+            :host{
+                display: block;
+                position: relative;
+                width: 100%;
+                height: auto;
+                
+            }
+            a{
+                text-decoration: none;
+                
+            }
+            a.but{
+                margin-left: 1em;
+                text-shadow: none;
+                color: #000;
+            }
+            paper-button{
+                margin-top: 1em;
+                margin-bottom: 1em;
+                background-color: #F5F5F5;
+            }
+            paper-button:hover{
+                background-color: #BDBDBD;
+            }
+            .menu-buttons{
+                margin-left: 10%;
+            }
+            
+        </style>
+                
+        <div class="row">
+            <paper-material>
+            <div class="menu-buttons">
+                <a class="but" href="/blog"><paper-button raised toggles> Personal blog </paper-button> </a>
+                <a class="but" href="/projects"> <paper-button raised toggles> Projects </paper-button> </a>
+                <a class="but" href="/blog/category"> <paper-button raised> Linux </paper-button> </a>
+                <a class="but" href="blog/category"> <paper-button raised> Music </paper-button> </a>
+                <a class="but" href="/about"> <paper-button raised> About </paper-button> </a>
+                <a class="but" href="/contact"> <paper-button raised> Contact </paper-button> </a>
+            </div>
+            </paper-material>
+        </div>
+        
+        
+        
+        <!--
+        <div class="row layout vertical">
+        <section id="maur">
+            <img class="" src="../image/maur.jpg">
+        </section>
+    </div>
+    
+     <div class="row present layout vertical">
+        <section id="preset">
+            <h1>Hi, I'm Maurice AINON</h1>
+            <p>Civil engineer, Linux and Programing antousiastic</p>
+            <p>Sofware, web app developper</p>
+        </section>
+    </div>
+     
+      <div class="row layout vertical">
+        <section>
+            <div class="menu-buttons">
+                <a class="button" href="/blog">Personal blog</a>
+                <a class="button" href="/projects">Projects</a>
+                <a class="button" href="/blog/category">Linux</a>
+                <a class="button" href="blog/category">Music</a>
+                <a class="button" href="/about">About</a>
+                <a class="button" href="/contact">Contact</a>
+            </div>
+        </section>
+    </div>
+      
+    <div class="row last layout vertical">
+        
+        <footer class="minimal">
+            <span><a href="/copyright">© 2016 Circus</a></span>
+            <span><a href="/everything">Everything</a></span>
+            <span><a href="/contact">Contact</a></span>
+            <span><a href="/cookies">Cookies</a></span>
+        </footer>
+    </div> -->
+    
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is:'ma-blog'
+    });
+</script>

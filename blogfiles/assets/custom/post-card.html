@@ -1,0 +1,79 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<script" src="../js/jquery.min.js"></script">
+<script" src="../js/perso.js"></script">
+
+<dom-module id="post-card" >
+    <template>
+        <style is="custom-style">
+            :host{
+                display: block;
+            }
+            img{
+                position: relative;
+                width: 80%;
+                height: auto;
+                margin-left: 10%;
+                margin-top:1.5em;
+                margin-bottom: 2em;
+            }
+            a{
+                text-decoration: none;
+            }
+            p{
+                margin-left: 10%;
+               // margin-top:5%;
+                //margin-top: .2em;
+            }
+            
+            paper-button.read{
+                margin-left: 10%;
+                --paper-button-background: #000;
+                
+            }
+            paper-button:hover{
+                background-color: #BDBDBD;
+            }
+            a{
+                color: #000;
+            }
+            you-video{
+              you-video-width: 80%;
+              margin-left: 10%;
+            }
+        </style>
+        
+        <paper-card heading="{{post.title}}">
+            <div class="card-content" id="card">
+              
+            </div>
+            <div class="card-actions">
+                <paper-button raised class="read"> <a href="{{url}}">Read more</a></paper-button>
+            </div>
+        
+        </paper-card>
+    </template>
+    
+</dom-module>
+
+
+<script>
+    
+    Polymer({
+        is:'post-card',
+        ready:function(){
+            this.url ="/blog/"+this.post.slug;
+            $(this.$.card).append(this.post.intro);
+        },
+        
+        properties: {
+            pintro:{
+              type:String,
+              value: "<b>some html</b>"
+            },
+            url:{
+                type:String,
+                value:""
+            }
+        }
+        });
+</script>

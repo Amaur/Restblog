@@ -1,0 +1,78 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/google-youtube/google-youtube.html">
+
+
+<dom-module id="you-video">
+  <template id="page-template">
+    <style>
+      div {
+        margin-bottom: 1em;
+      }
+      google-youtube{
+            margin-left: 10%;
+      }
+    </style>
+    
+    <google-youtube id="googleYouTube"
+                    playsupported="{{playSupported}}"
+                    video-id="{{video}}"
+                    state="{{state}}"
+                    width="90%"
+                    currenttime="{{currentTime}}"
+                    currenttimeformatted="{{currentTimeFormatted}}"
+                    duration="{{duration}}"
+                    durationformatted="{{durationFormatted}}"
+                    fractionloaded="{{fractionLoaded}}"
+                    on-google-youtube-state-change="handleStateChange"
+                    on-google-youtube-error="handleYouTubeError">
+    </google-youtube>
+
+    
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'you-video',
+    properties: {
+      playSupported: Boolean,
+      state: String,
+      currentTime: Number,
+      currentTimeFormatted: String,
+      duration: Number,
+      durationFormatted: String,
+      fractionLoaded: Number,
+      width : String,
+      height : String,
+      video: String,
+      events: {
+        type: Array,
+        value: []
+      }
+    },
+    computeProgress: function(currentTime, duration) {
+      return currentTime / duration;
+    },
+    computePlayDisabled: function(state, playSupported) {
+      return state == 1 || state == 3 || !playSupported;
+    },
+    computePauseDisabled: function(state) {
+      return state != 1 && state != 3;
+    },
+    handleStateChange: function(ev) {
+      this.events.push({data: ev.detail.data});
+    },
+    handleYouTubeError: function(ev) {
+      console.error('YouTube playback error', ev.detail);
+    },
+    handlePlayVideo: function(ev) {
+      this.$.googleYouTube.play();
+    },
+    handlePauseVideo: function(ev) {
+      this.$.googleYouTube.pause();
+    },
+    handleCueVideo: function(ev) {
+      this.$.googleYouTube.videoid = this.$.videoId.value;
+    }
+  });
+
+</script>

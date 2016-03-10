@@ -1,0 +1,52 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="stylesheet" href="../css/style.css">
+
+
+
+<dom-module id="post-list">
+    <template>
+        <iron-ajax
+                  id="postAjax"
+            method="get"
+            auto
+            url="/api/posts/"
+            handle-as="json"
+            contentType="application/json"
+            last-response="{{posts}}"
+            on-response="Lareponse"
+        >
+            
+        </iron-ajax>
+        
+        <style is="custom-style">
+            paper-card{
+                margin-top: 1em;
+            }
+        </style>
+        <template is="dom-repeat" items="{{posts}}" as="post">
+        <post-card post={{post}} pintro="<strong>foo</strong>"></post-card>
+        </template>
+        
+    </template>
+</dom-module>
+<script>
+    
+</script>
+<script>
+    
+    
+    
+    Polymer({
+        is:'post-list',
+        
+        Lareponse:function(r){
+            data = r.detail.response;
+            console.log(data[0].intro);
+            
+            
+        },
+        properties:{
+          pintro:String  
+        }
+    });
+</script>

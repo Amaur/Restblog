@@ -1,0 +1,37 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="stylesheet" href="../css/style.css">
+
+
+<dom-module id="ma-foo">
+    <template>
+        
+        <style>
+            :host{
+                display: block;
+                position: relative;
+                margin-top: 3em;
+                margin-bottom: 3em;
+            }
+            footer{
+                margin-top: 2em;
+            }
+        </style>
+        
+        <div class="row">
+            <paper-material>
+            <footer class="minimal">
+            <span><a href="/copyright">© 2016 Circus</a></span>
+            <span><a href="/everything">Everything</a></span>
+            <span><a href="/contact">Contact</a></span>
+            <span><a href="/cookies">Cookies</a></span>
+        </footer>
+            </paper-material>
+        </div>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is:'ma-foo'
+    });
+</script>

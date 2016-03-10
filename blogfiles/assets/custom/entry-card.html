@@ -1,0 +1,35 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="stylesheet" href="../css/style.css">
+
+
+<dom-module id="entry-card">
+    <template>
+        
+        <style is="custom-style">
+            paper-toolbar{
+                --paper-toolbar-background: #546E7A;
+            }
+        </style>
+        
+        <div class="row" style="margin-top: 3em;">
+            <paper-toolbar>
+                <paper-icon-button icon="arrow-back"></paper-icon-button>
+                    <h4>Page 1</h4>
+                <paper-icon-button icon="arrow-forward"></paper-icon-button>
+            </paper-toolbar>
+            
+           
+            <paper-material>
+                <post-list></post-list>
+            </paper-material>
+           
+        </div>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is:'entry-card'
+    });
+</script>

@@ -1,0 +1,59 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="stylesheet" href="../css/style.css">
+
+
+
+<dom-module id="ma-intro">
+    <template>
+        
+        <style>
+            :host{
+                display: block;
+                position: relative;
+                
+            }
+            paper-card {
+              width: 100%;
+              background-color: transparent;
+              margin-top:  3em;
+            }
+            h1{
+                color: #606;
+            }
+            #intro-img{
+                position: relative;
+                width: 30%;
+                height: auto;
+                //margin: 0 10%;
+            }
+            in-img{
+                border-bottom: .2em solid #000;
+            }
+            
+        </style>
+        
+        
+        
+        <div class="row">
+            <paper-card class="intro">
+                <div class="card-content in-img">
+                <iron-image src="../image/maur.jpg" id="intro-img" style="margin-left:40%; position: relative; width: 100%; height: 100%;"></iron-image>
+                </div>
+                <div class="card-content">
+                    <section id="preset">
+                        <h1>Hi, I'm Maurice AINON</h1>
+                        <p>Civil engineer, Linux and Programing antousiastic</p>
+                        <p>Sofware, web app developper</p>
+                    </section>
+                </div>
+            </paper-card>
+        </div>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is:'ma-intro'
+    });
+</script>

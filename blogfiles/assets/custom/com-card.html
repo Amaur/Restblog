@@ -1,0 +1,52 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="stylesheet" href="../css/style.css">
+
+
+<dom-module id="com-card">
+    <template>
+        
+        <style is="custom-style">
+            paper-card{
+                width: 60%;
+                height: auto;
+                position: relative;
+                margin: auto;
+            }
+            p{
+                margin:.3em 0 2em 2em;
+                padding-bottom: 1em;
+            }
+            div.coment{
+                background-color: #E0E0E0;
+                display: block;
+                width: 70%;
+                position: relative;
+                margin: auto;
+            }
+            div.coment:hover{
+                background-color: #BDBDBD;
+                border-radius: .5em;
+            }
+            div.title{
+                margin: 1em 1em ;
+                padding-top: 1em;
+            }
+        </style>
+        
+         <div class="coment">
+            <div class="title">
+                <div class="medium">{{com.name}}</div>
+                <div class="small"> <small>{{com.created}}</small> </div>
+            </div>
+               <p>{{com.text}}</p>
+        </div>
+       
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is:'com-card'
+    });
+</script>
